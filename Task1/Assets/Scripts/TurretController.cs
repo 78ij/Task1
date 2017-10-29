@@ -16,7 +16,7 @@ public class TurretController : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (gamecontroller.gamenotover)
+        if (gamecontroller.gamestatus >= 0 )
         {
             CurrentMousePosition = new Vector3(Input.mousePosition.x,
                 Input.mousePosition.y - Screen.height / 2,

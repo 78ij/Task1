@@ -28,7 +28,7 @@ public class QuickPlaneController : PlaneBase, IEnemyPlane
     // Use this for initialization
     public override void Start()
     {
-        Health = 3;
+        Health = 2;
         GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
     }
 
@@ -42,7 +42,12 @@ public class QuickPlaneController : PlaneBase, IEnemyPlane
     public void Destroy()
     {
         if (Health == 0)
+        {
             PlanePool.GetInstance().Disable(this.gameObject);
+            GameController controller = GameObject.FindGameObjectWithTag("GameController")
+                  .GetComponent<GameController>();
+            controller.score++;
+        }
     }
     public void Fire()
     {
@@ -55,7 +60,7 @@ public class QuickPlaneController : PlaneBase, IEnemyPlane
     }
     public void Revive()
     {
-        Health = 3;
+        Health = 2;
         GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
     }
 }

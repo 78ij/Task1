@@ -42,7 +42,12 @@ public class StrongPlaneController : PlaneBase, IEnemyPlane
     public void Destroy()
     {
         if (Health == 0)
+        {
             PlanePool.GetInstance().Disable(this.gameObject);
+            GameController controller = GameObject.FindGameObjectWithTag("GameController")
+                  .GetComponent<GameController>();
+            controller.score++;
+        }
     }
     public void Fire()
     {

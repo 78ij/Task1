@@ -7,8 +7,11 @@ public class GameController : MonoBehaviour
 {
     public Text HpText;
     public Text GameOverText;
-    public bool gamenotover = true;
+    public Text ScoreText;
+    public Text WinText;
+    public int gamestatus = 1;
     public int health = 10;
+    public int score = 0;
     private Vector3[] position = {
         new Vector3(11.0f,2.50f,-1.0f),
         new Vector3(11.0f,0.0f,-1.0f),
@@ -27,7 +30,7 @@ public class GameController : MonoBehaviour
 	}
 	IEnumerator Evade()
     {
-        while (gamenotover)
+        while (gamestatus > 0)
         {
             if (PlanePool.GetInstance().pool.Count <= 50)
             {
@@ -50,6 +53,7 @@ public class GameController : MonoBehaviour
 
         }
         GameOver();
+        UpdateScore();
     }
     public void Hurt()
     {
@@ -60,8 +64,17 @@ public class GameController : MonoBehaviour
     {
         if(health <= 0)
         {
-            gamenotover = false;
+            gamestatus = 0;
             GameOverText.text = "Game Over!";
+        }
+    }
+    public void UpdateScore()
+    {
+        ScoreText.text = "Score = " + score;
+        if(score >= 30)
+        {
+            gamestatus = -1;
+            WinText.text = "You Win!";
         }
     }
 }

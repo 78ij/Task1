@@ -37,8 +37,14 @@ public class NormalPlaneController : PlaneBase,IEnemyPlane
     }
     public void Destroy()
     {
-          if(Health == 0)
-              PlanePool.GetInstance().Disable(this.gameObject);
+
+        if (Health == 0)
+        {
+            GameController controller = GameObject.FindGameObjectWithTag("GameController")
+                 .GetComponent<GameController>();
+            controller.score++;
+            PlanePool.GetInstance().Disable(this.gameObject);
+        }
     }
     public void Fire()
     {
@@ -47,7 +53,6 @@ public class NormalPlaneController : PlaneBase,IEnemyPlane
     public void GotHit()
     {
         Health--;
-        Debug.Log(Health);
     }
     public void Revive()
     {

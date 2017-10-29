@@ -19,6 +19,8 @@ public class ReduceHealthByContact : MonoBehaviour {
             || other.tag == "quickplane")
         {
             other.SendMessage("GotHit",null, SendMessageOptions.DontRequireReceiver);
+            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 }
