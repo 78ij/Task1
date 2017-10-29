@@ -9,8 +9,14 @@ namespace UniqueStudioTasks
         public abstract class PlaneBase : MonoBehaviour
         {
             public abstract void Start();
-            public abstract void Update();
-            public abstract int Health { get; set; }
+            public abstract void Update();   
+        }
+
+        public interface IEnemyPlane
+        {
+            int Health { get; set; }
+            void Destroy();
+            void Fire();
         }
     }
 }
