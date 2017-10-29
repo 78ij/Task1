@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniqueStudioTasks.Task1;
-public class NormalPlaneController : PlaneBase,IEnemyPlane{
+
+public class NormalPlaneController : PlaneBase,IEnemyPlane
+{
     private string _type = "normalplane";
     public  string Type {
         get {
@@ -23,20 +25,33 @@ public class NormalPlaneController : PlaneBase,IEnemyPlane{
     }
 	// Use this for initialization
 	public override void  Start () {
-		
+        Health = 3;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(-3, 0);
 	}
+
 
     // Update is called once per frame
     public override void Update () {
-		
-	}
+        Destroy();
+
+    }
     public void Destroy()
     {
-        Destroy(this.gameObject);
-        Destroy(this);
+          if(Health == 0)
+              PlanePool.GetInstance().Disable(this.gameObject);
     }
     public void Fire()
     {
 
+    }
+    public void GotHit()
+    {
+        Health--;
+        Debug.Log(Health);
+    }
+    public void Revive()
+    {
+        Health = 3;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(-3, 0);
     }
 }

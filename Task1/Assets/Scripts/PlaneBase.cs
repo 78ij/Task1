@@ -17,6 +17,8 @@ namespace UniqueStudioTasks
             int Health { get; set; }
             void Destroy();
             void Fire();
+            void GotHit();
+            void Revive();
         }
     }
 }

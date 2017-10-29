@@ -10,7 +10,7 @@ namespace UniqueStudioTasks
         public class PlanePool : MonoBehaviour
         {
             public string CurrentType;
-            List<GameObject> pool = new List<GameObject>();
+            public List<GameObject> pool = new List<GameObject>();
             public PlanePool() { }
             private static PlanePool instance; //Singleton pattern
             public static PlanePool GetInstance()
@@ -22,17 +22,19 @@ namespace UniqueStudioTasks
                 }
                 return instance;
             }
-            public GameObject Instantiate(string type)
+            public GameObject Instantiate(string type,Vector3 position)
             {
                 CurrentType = type;
                 if(pool.Find(SearchForType) == null)
                 {
-                    return Factories.CreatePlane(type);
+                    return Factories.CreatePlane(type,position);
                 }
                 else
                 {
                     GameObject temp =  pool.Find(SearchForType);
                     temp.SetActive(true);
+                    temp.SendMessage("Revive", null, SendMessageOptions.DontRequireReceiver);
+                    temp.GetComponent<Transform>().position = position;
                     pool.Remove(temp);
                     return temp;
                 }
