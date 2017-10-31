@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 namespace UniqueStudioTasks
 {
-    namespace Task1
+    namespace MathUtilities
     {
         class MathUtilities
         {

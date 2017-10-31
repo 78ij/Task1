@@ -13,6 +13,7 @@ namespace UniqueStudioTasks
             public List<GameObject> pool = new List<GameObject>();
             public PlanePool() { }
             private static PlanePool instance; //Singleton pattern
+            public int health = 5;
             public static PlanePool GetInstance()
             {
                 if(instance == null)
@@ -43,6 +44,15 @@ namespace UniqueStudioTasks
             {
                 plane.SetActive(false);
                 pool.Add(plane);
+            }
+            public void Update()
+            {
+                foreach(var plane in pool)
+                {
+                    if(plane.tag == "strongplane") {
+                        plane.GetComponent<StrongPlaneController>().maxhealth = health;
+                    }
+                }
             }
             public bool SearchForType(GameObject plane)
             {

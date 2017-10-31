@@ -9,14 +9,18 @@ public class GameController : MonoBehaviour
     public Text GameOverText;
     public Text ScoreText;
     public Text WinText;
+
     public int gamestatus = 1;
     public int health = 10;
     public int score = 0;
+
+
     private Vector3[] position = {
         new Vector3(11.0f,2.50f,-1.0f),
         new Vector3(11.0f,0.0f,-1.0f),
         new Vector3(11.0f,-2.50f,-1.0f),
     };
+
     private string[] types = {
         "normalplane",
         "strongplane",
@@ -26,6 +30,9 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         HpText.text = "HP = 10";
+        GameObject cameraobject = GameObject.FindGameObjectWithTag("MainCamera");
+        var camera = cameraobject.GetComponent<Camera>();
+        camera.aspect = 1.777778f;
         StartCoroutine(Evade());
 	}
 	IEnumerator Evade()

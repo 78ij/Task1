@@ -51,14 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AutoAdjustCanvas.cs" />
+     <Compile Include="Assets\Scripts\BaseClasses.cs" />
      <Compile Include="Assets\Scripts\ButtonEvent.cs" />
      <Compile Include="Assets\Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\Scripts\Factories.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\HealthChanged.cs" />
      <Compile Include="Assets\Scripts\MathUtilities.cs" />
      <Compile Include="Assets\Scripts\NormalPlaneController.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
-     <Compile Include="Assets\Scripts\PlaneBase.cs" />
      <Compile Include="Assets\Scripts\QuickPlaneController.cs" />
      <Compile Include="Assets\Scripts\ReduceHealthByContact.cs" />
      <Compile Include="Assets\Scripts\ShellController.cs" />

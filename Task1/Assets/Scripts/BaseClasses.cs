@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace UniqueStudioTasks
@@ -9,7 +10,7 @@ namespace UniqueStudioTasks
         public abstract class PlaneBase : MonoBehaviour
         {
             public abstract void Start();
-            public abstract void Update();   
+            public abstract void Update();
         }
 
         public interface IEnemyPlane
@@ -20,5 +21,6 @@ namespace UniqueStudioTasks
             void GotHit();
             void Revive();
         }
+        
     }
 }

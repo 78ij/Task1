@@ -6,6 +6,7 @@ using UniqueStudioTasks.Task1;
 public class StrongPlaneController : PlaneBase, IEnemyPlane
 {
     private string _type = "strongplane";
+    public int maxhealth = 5;
     public string Type
     {
         get
@@ -28,7 +29,8 @@ public class StrongPlaneController : PlaneBase, IEnemyPlane
     // Use this for initialization
     public override void Start()
     {
-        Health = 5;
+        Health = maxhealth;
+        StrongHealthChangedObject.GetInstance().planes.Add(this.gameObject);
         GetComponent<Rigidbody2D>().velocity = new Vector2(-3, 0);
     }
 
@@ -53,6 +55,7 @@ public class StrongPlaneController : PlaneBase, IEnemyPlane
     {
 
     }
+
     public void GotHit()
     {
         Health--;
@@ -60,7 +63,7 @@ public class StrongPlaneController : PlaneBase, IEnemyPlane
     }
     public void Revive()
     {
-        Health = 5;
+        Health = maxhealth;
         GetComponent<Rigidbody2D>().velocity = new Vector2(-3, 0);
     }
 }
