@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50619223820062772}
   - component: {fileID: 114329563845376224}
   - component: {fileID: 114015493773587604}
+  - component: {fileID: 114056575151296756}
   m_Layer: 0
   m_Name: shell
   m_TagString: shell
@@ -80,7 +81,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.39, y: 0.08}
+    oldSize: {x: 0.11, y: 0.08}
     newSize: {x: 0.39, y: 0.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -100,6 +101,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56a9cce7e9feab449a610f71435883f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114056575151296756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979325839300024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawOutside: 1
+  CustomOutlineMaterial: {fileID: 0}
+  _glowColor: {r: 0, g: 1.4910285, b: 1.7023554, a: 1}
+  _outlineWidth: 8
+  _alphaThreshold: 0.14
 --- !u!114 &114329563845376224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +142,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8755d0773fe8ac0478cda594ae0d375a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5cc191b407f5d3a4e99b902993d48362, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0afc5aeb03928e74fb68bec506860abb, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

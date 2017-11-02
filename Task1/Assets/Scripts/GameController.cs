@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     public float WaveInterval;
 	// Use this for initialization
 	void Start () {
-        HpText.text = "HP = 10";
+        HpText.text = "HP = " + health;
         GameObject cameraobject = GameObject.FindGameObjectWithTag("MainCamera");
         var camera = cameraobject.GetComponent<Camera>();
         camera.aspect = 1.777778f;
